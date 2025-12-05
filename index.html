@@ -124,56 +124,38 @@
                     </div>
 
                     <div class="bg-gray-100 p-5 rounded-lg border border-gray-200">
-                        <h4 class="text-xl font-bold text-green-700 mb-2">2. Gemini 기반 감정 분류 및 데이터 관리 (📊 시각화)</h4>
+                        <h4 class="text-xl font-bold text-green-700 mb-2">2. Gemini 기반 감정 분류 및 데이터 관리 (📊 구현 화면)</h4>
                         <p class="text-gray-700 mb-4">
-                            <strong>Gemini 2.5 Flash 모델</strong>을 활용하여 영상 만족도 평가 시 제출되는 피드백 텍스트의 감정(Positive/Negative/Neutral)을 실시간으로 분류하고, **Firebase Realtime Database**에 저장된 데이터를 기반으로 사용자들의 감정 분포를 도넛 차트로 시각화했습니다.
+                            <strong>Gemini 2.5 Flash 모델</strong>을 활용하여 피드백 텍스트의 감정(Positive/Negative/Neutral)을 실시간으로 분류하고, **Firebase Realtime Database**에 저장된 데이터를 기반으로 사용자들의 감정 분포를 도넛 차트로 시각화했습니다.
                         </p>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                             
-                            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col justify-center items-center">
-                                <h5 class="text-lg font-bold text-gray-800 mb-3">설문조사 감정 분석 결과 (예시)</h5>
+                            <div class="bg-white p-4 rounded-lg shadow-xl border-2 border-blue-500 flex flex-col justify-center items-center">
+                                <h5 class="text-lg font-bold text-blue-700 mb-3">① 전체 사용자 감정 분포 결과</h5>
                                 
-                                <p class="text-sm text-gray-500 mt-2">
-                                    <span class="text-green-600 font-bold">Positive</span> / 
-                                    <span class="text-yellow-600 font-bold">Neutral</span> / 
-                                    <span class="text-red-600 font-bold">Negative</span> 감정 비율을 보여주는 도넛 차트
+                                <p class="text-xs text-gray-600 mt-2 text-center">
+                                    데이터베이스에 누적된 **고유 사용자**의 피드백을 집계하여, 서비스 이용 현황과 전반적인 광고 만족도를 파악합니다.
                                 </p>
                             </div>
                             
-                            <div class="bg-gray-800 p-4 rounded-lg overflow-x-auto">
-                                <h5 class="text-lg font-bold text-white mb-3">차트 데이터 집계 (JSX/TSX)</h5>
-                                <pre class="text-sm text-gray-300 whitespace-pre-wrap"><code>
-// 고유 clientId별 감정 카운트 집계 로직
-const surveysRef = ref(database, 'surveys');
-onValue(surveysRef, (snapshot) => {
-    // ... 데이터 처리 로직
-    const clientSentimentMap: { [clientId: string]: string } = {};
-    Object.values(data).forEach((survey: any) => {
-        const clientId = survey.clientId;
-        const sentiment = survey.analysisResult?.sentiment?.trim();
-        if (clientId && sentiment) {
-            // 고유 클라이언트 ID 기준으로 감정 저장/업데이트
-            clientSentimentMap[clientId] = sentiment; 
-        }
-    });
-
-    const counts: SentimentCounts = { Positive: 0, Neutral: 0, Negative: 0 };
-    // 중복 제거된 고유 감정 데이터만 최종 집계
-    Object.values(clientSentimentMap).forEach(sentiment => {
-        if (counts.hasOwnProperty(sentiment)) {
-            counts[sentiment as keyof SentimentCounts] += 1;
-        }
-    });
-
-    // Chart.js 데이터셋 구성 (setChartData 호출)
-    // ...
-});
-                                </code></pre>
+                            <div class="bg-white p-4 rounded-lg shadow-xl border-2 border-green-500">
+                                <h5 class="text-lg font-bold text-green-700 mb-3">② 실시간 피드백 분류 결과</h5>
+                                <div class="p-3 bg-gray-50 border border-gray-300 rounded-md mb-3">
+                                    <p class="font-semibold text-gray-800 mb-1">사용자 피드백 (텍스트):</p>
+                                    <p class="italic text-sm text-gray-600">"영상이 정말 인상 깊었고, 운전 습관에 대해 다시 한번 생각하게 만드는 좋은 광고였습니다."</p>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-green-50 border-l-4 border-green-600 rounded-md">
+                                    <p class="font-bold text-gray-800">Gemini 분석 결과:</p>
+                                    <span class="text-xl font-extrabold text-green-700 bg-green-200 px-3 py-1 rounded-full shadow-inner">Positive</span>
+                                </div>
+                                <p class="text-xs text-gray-600 mt-2 text-center">
+                                    사용자 피드백을 Gemini API로 전송해 **실시간으로 감정 분류**를 수행하는 UI/UX 구현 예시.
+                                </p>
                             </div>
                         </div>
                         
-                        <ul class="list-disc list-inside text-gray-700 mt-4 ml-4 space-y-1">
+                        <ul class="list-disc list-inside text-gray-700 mt-6 ml-4 space-y-1">
                             <li>평가 제출 시 **`.csv` 형식의 문서 다운로드** 기능을 구현하여 데이터 백업 및 오프라인 분석 용이성을 확보했습니다.</li>
                             <li>데이터 집계 시, **고유 클라이언트 ID(clientId)**를 기준으로 중복 설문을 제거하여 정확한 **방문자/피드백 수**를 계산했습니다.</li>
                         </ul>
