@@ -228,6 +228,12 @@
             const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
             // CDN을 통해 로드된 GoogleGenerativeAI 클래스를 사용합니다.
             const { GoogleGenerativeAI } = window.googleGenAI; 
+
+            // GoogleGenerativeAI 객체가 올바르게 로드되었는지 확인하는 로직을 추가하는 것이 안전합니다.
+            if (typeof GoogleGenerativeAI === 'undefined') {
+                console.error("오류: GoogleGenerativeAI SDK가 로드되지 않았습니다. CDN 경로를 확인해주세요.");
+                return; // 추가 실행 방지
+            }
             const genAI = new GoogleGenerativeAI(API_KEY);
             const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
@@ -419,3 +425,4 @@
 </body>
 
 </html>
+
