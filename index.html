@@ -221,117 +221,7 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const sentimentData = {
-                labels: ['긍정 (Positive)', '중립 (Neutral)', '부정 (Negative)'],
-                data: [120, 40, 20],
-                backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'], // Indigo, Gray, Red
-                borderColor: ['#ffffff', '#ffffff', '#ffffff'],
-            };
-
-            const ctx = document.getElementById('sentimentChart').getContext('2d');
-            const sentimentChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: sentimentData.labels,
-                    datasets: [{
-                        data: sentimentData.data,
-                        backgroundColor: sentimentData.backgroundColor,
-                        borderColor: sentimentData.borderColor,
-                        borderWidth: 2,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: { size: 14 }
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) { label += ': '; }
-                                    if (context.parsed !== null) {
-                                        label += context.parsed + '건';
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const analyzeButton = document.getElementById('analyze-button');
-            const feedbackInput = document.getElementById('feedback-input');
-            const sentimentResult = document.getElementById('sentiment-result');
-            const downloadButton = document.getElementById('download-button');
-
-            const storedFeedbacks = JSON.parse(localStorage.getItem('userFeedbacks')) || [];
-
-            function classifySentiment(text) {
-                const lowerText = text.toLowerCase();
-                if (lowerText.includes('좋은') || lowerText.includes('감동') || lowerText.includes('인상적') || lowerText.includes('효과적')) {
-                    return { sentiment: '긍정적 (Positive)', color: 'text-indigo-600' };
-                } else if (lowerText.includes('잘 봤습니다') || lowerText.includes('나쁘지 않다') || lowerText.includes('보통') || lowerText.includes('무난')) {
-                    return { sentiment: '중립적 (Neutral)', color: 'text-gray-500' };
-                } else if (lowerText.includes('강하다') || lowerText.includes('부족하다') || lowerText.includes('불편') || lowerText.includes('개선 필요')) {
-                    return { sentiment: '부정적 (Negative)', color: 'text-red-600' };
-                } else {
-                    return { sentiment: '분류 불가 (Neutral)', color: 'text-gray-500' };
-                }
-            }
-
-            analyzeButton.addEventListener('click', function() {
-                const text = feedbackInput.value.trim();
-                if (text === '') {
-                    sentimentResult.textContent = '평가 텍스트를 입력해주세요.';
-                    sentimentResult.className = 'text-xl font-extrabold mt-2 text-yellow-600';
-                    return;
-                }
-
-                const classification = classifySentiment(text);
-                sentimentResult.textContent = classification.sentiment;
-                sentimentResult.className = 'text-xl font-extrabold mt-2 ' + classification.color;
-
-                const feedbackEntry = {
-                    text: text,
-                    sentiment: classification.sentiment,
-                    timestamp: new Date().toISOString()
-                };
-
-                storedFeedbacks.push(feedbackEntry);
-                localStorage.setItem('userFeedbacks', JSON.stringify(storedFeedbacks));
-            });
-
-            downloadButton.addEventListener('click', function() {
-                if (storedFeedbacks.length === 0) {
-                    alert('저장된 피드백이 없습니다. 먼저 평가를 입력하고 분석을 실행해주세요.');
-                    return;
-                }
-
-                const jsonContent = JSON.stringify(storedFeedbacks, null, 2);
-                const blob = new Blob([jsonContent], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'sentiment_feedback_results.json';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            });
-
-        });
-    </script>
+    
     <script>
     // ⭐ API Key: 사용자님의 API 키를 사용합니다.
     const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
@@ -526,4 +416,5 @@
 </body>
 
 </html>
+
 
