@@ -154,47 +154,7 @@
                                 <!-- 도넛 차트 시뮬레이션: SentimentChart.tsx의 디자인 반영 -->
                                 <div class="relative w-full max-w-[300px] aspect-square p-4">
                                     <!-- 도넛 차트 시뮬레이션 이미지 태그 삽입 -->
-                                    <div class="bg-gray-100 p-5 rounded-lg border border-gray-200">
-                                        <h4 class="text-xl font-bold text-green-700 mb-2">2. Gemini 기반 감정 분류 및 데이터 관리 (📊 구현 화면)</h4>
-                                        <p class="text-gray-700 mb-4">
-                                            <strong>Gemini 2.5 Flash 모델</strong>을 활용하여 피드백 텍스트의 감정(Positive/Neutral/Negative)을 실시간으로 분류하고, **Firebase Realtime Database**에 저장된 데이터를 기반으로 사용자들의 감정 분포를 도넛 차트로 시각화했습니다.
-                                        </p>
-                
-                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                                            
-                                                                        <div class="bg-white p-4 rounded-lg shadow-xl border-2 border-blue-500 flex flex-col items-center">
-                                                <h5 class="text-lg font-bold text-blue-700 mb-3">① 전체 사용자 감정 분포 결과 (Chart.js 구현)</h5>
-                                                
-                                                                                <div class="relative w-full max-w-[200px] aspect-square p-4">
-                                                                                        <div class="absolute inset-0 rounded-full" style="background: conic-gradient(
-                                                        #4CAF50 0% 45.45%, 
-                                                        #FFC107 45.45% 68.18%, 
-                                                        #F44336 68.18% 100%
-                                                    );">
-                                                                                                <div class="absolute inset-4 sm:inset-6 bg-white rounded-full"></div>
-                                                                                                <div class="absolute inset-0 flex flex-col justify-center items-center">
-                                                            <span class="text-xs font-medium text-gray-500">총 참여</span>
-                                                            <span class="text-3xl font-extrabold text-blue-700">22</span>
-                                                            <span class="text-xs font-medium text-gray-500">명</span>
-                                                        </div>
-                                    </div>
-                                </div>
-                                
-                                                                <div class="mt-4 w-full flex flex-wrap justify-center gap-x-6 text-base font-semibold">
-                                    <span class="flex items-center text-green-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #4CAF50;"></span> 🟢 긍정 (**10명**)
-                                    </span>
-                                    <span class="flex items-center text-yellow-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #FFC107;"></span> 🟡 중립 (**5명**)
-                                    </span>
-                                    <span class="flex items-center text-red-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #F44336;"></span> 🔴 부정 (**7명**)
-                                    </span>
-                                </div>
-                                <p class="text-xs text-gray-600 mt-4 text-center">
-                                    **(총 참여 22명 기준)** 고유 사용자 ID 기반으로 중복을 제거하여 집계된 감정 분포 화면
-                                </p>
-                            </div>
+                                    
                                 </div>
                                 
                                 <!-- 범례 (Legend) 시뮬레이션 -->
