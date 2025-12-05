@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운전자 전방주시 경고 영상 프로젝트 포트폴리오</title>
-    <!-- Tailwind CSS CDN 로드 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter 폰트 사용 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* 기본 글꼴 설정 */
@@ -30,7 +29,6 @@
 
     <div class="container mx-auto p-4 sm:p-8 lg:p-12 max-w-6xl">
 
-        <!-- Header & Hero Section -->
         <header class="text-center py-12 mb-12 bg-white rounded-xl shadow-lg border border-gray-200">
             <h1 class="text-4xl sm:text-6xl font-extrabold text-blue-700 mb-2">임종원</h1>
             <p class="text-lg sm:text-2xl font-light italic text-gray-600">
@@ -48,7 +46,6 @@
             </div>
         </header>
 
-        <!-- About Me Section -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold border-b-2 border-blue-700 pb-2 mb-6 text-blue-700">상세 소개 (About Me)</h2>
             <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 space-y-4">
@@ -58,12 +55,10 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold border-b-2 border-blue-700 pb-2 mb-6 text-blue-700">전체 기술 스택 (Skills)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Frontend -->
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-green-600 mb-3">프론트엔드</h3>
                     <div class="flex flex-wrap gap-2">
@@ -73,7 +68,6 @@
                     </div>
                 </div>
 
-                <!-- Backend -->
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-red-600 mb-3">백엔드</h3>
                     <div class="flex flex-wrap gap-2">
@@ -85,7 +79,6 @@
                     </div>
                 </div>
 
-                <!-- AI & DB -->
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                     <h3 class="text-xl font-semibold text-yellow-600 mb-3">AI & Cloud DB</h3>
                     <div class="flex flex-wrap gap-2">
@@ -95,7 +88,6 @@
                     </div>
                 </div>
 
-                <!-- DevOps & Tools -->
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 col-span-1 md:col-span-2 lg:col-span-3">
                     <h3 class="text-xl font-semibold text-purple-600 mb-3">DevOps & Tools</h3>
                     <div class="flex flex-wrap gap-2">
@@ -109,72 +101,51 @@
             </div>
         </section>
         
-        <!-- Project Section -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold border-b-2 border-blue-700 pb-2 mb-8 text-blue-700">주요 프로젝트: 운전자 전방주시 경고 영상 프로젝트</h2>
 
             <div class="bg-white p-8 rounded-xl shadow-2xl border border-gray-200 space-y-8">
                 
-                <!-- Problem Definition -->
                 <div class="border-l-4 border-red-600 pl-4">
                     <h3 class="text-2xl font-semibold text-red-600 mb-2">문제 정의</h3>
                     <p class="text-gray-700">뉴스 기사에서 본 비극적인 운전사고가 더 이상 일어나지 않았으면 하는 마음으로, AI 기술을 활용하여 기존 광고의 한계를 뛰어넘는 새로운 유형의 공익광고를 제작하고자 했습니다.</p>
                 </div>
 
-                <!-- Architecture -->
                 <div class="border-l-4 border-yellow-600 pl-4">
                     <h3 class="text-2xl font-semibold text-yellow-600 mb-2">아키텍처/설계</h3>
                     <p class="text-gray-700">문제 해결을 위해 AI 공익광고 영상 제작, 피드백 조사, 감정 분류를 핵심 전략으로 채택했습니다. 데이터베이스는 RealtimeDB을 사용하여 피드백 및 사용자 수를 조사하고 차트(도넛)로 시각화했습니다. Google Gemini API를 활용하여 사용자 피드백의 감정 분류에 사용했습니다.</p>
                 </div>
 
-                <!-- Core Features -->
                 <div class="space-y-6">
                     <h3 class="text-2xl font-semibold text-green-600 pb-1 border-b border-gray-300">핵심 기능</h3>
                     
-                    <!-- Feature 1 -->
                     <div class="bg-gray-100 p-5 rounded-lg border border-gray-200">
                         <h4 class="text-xl font-bold text-green-700 mb-2">1. Flow활용 AI 기반 공익광고 제작</h4>
                         <p class="text-gray-700">VEO 3.1 - Fast 모델을 활용하여 텍스트로 영상을 제작했습니다. 구체적인 명령 프롬프트를 활용하여 설득력 있는 Scene을 구성하고 시청자에게 강력한 메시지를 전달하도록 설계했습니다.</p>
                     </div>
 
-                    <!-- Feature 2: 감정 분류 및 데이터 관리 상세 시각화 -->
                     <div class="bg-gray-100 p-5 rounded-lg border border-gray-200">
-                        <h4 class="text-xl font-bold text-green-700 mb-2">2. Gemini 기반 감정 분류 및 데이터 관리 (📊 구현 화면)</h4>
+                        <h4 class="text-xl font-bold text-green-700 mb-2">2. Gemini 기반 감정 분류 및 데이터 관리 (<span class="text-blue-600">📊 구현 화면</span>)</h4>
                         <p class="text-gray-700 mb-4">
                             <strong>Gemini 2.5 Flash 모델</strong>을 활용하여 피드백 텍스트의 감정(Positive/Neutral/Negative)을 실시간으로 분류하고, **Firebase Realtime Database**에 저장된 데이터를 기반으로 사용자들의 감정 분포를 도넛 차트로 시각화했습니다.
                         </p>
 
-                        <!-- 시각화 영역 (차트 및 분류 결과) -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                             
-                            <!-- 1. 최종 도넛 차트 결과 화면 (시각화 강조) -->
                             <div class="bg-white p-4 rounded-lg shadow-xl border-2 border-blue-500 flex flex-col items-center">
                                 <h5 class="text-lg font-bold text-blue-700 mb-3">① 전체 사용자 감정 분포 결과 (Chart.js 구현)</h5>
                                 
-                                <!-- 도넛 차트 시뮬레이션: SentimentChart.tsx의 디자인 반영 -->
                                 <div class="relative w-full max-w-[300px] aspect-square p-4">
-                                    <!-- 도넛 차트 시뮬레이션 이미지 태그 삽입 -->
-                                    
+                                    <canvas id="sentimentChart"></canvas>
                                 </div>
                                 
-                                <!-- 범례 (Legend) 시뮬레이션 -->
-                                <div class="mt-2 w-full flex flex-wrap justify-center gap-x-4 text-sm font-semibold">
-                                    <span class="flex items-center text-green-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #4CAF50;"></span> Positive (68.2%)
-                                    </span>
-                                    <span class="flex items-center text-yellow-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #FFC107;"></span> Neutral (22.7%)
-                                    </span>
-                                    <span class="flex items-center text-red-700">
-                                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: #F44336;"></span> Negative (9.1%)
-                                    </span>
-                                </div>
+                                <div id="chartLegend" class="mt-2 w-full flex flex-wrap justify-center gap-x-4 text-sm font-semibold">
+                                    </div>
                                 <p class="text-xs text-gray-600 mt-2 text-center">
                                     고유 사용자 ID 기반으로 중복을 제거하여 집계된 실시간 감정 분포 화면
                                 </p>
                             </div>
                             
-                            <!-- 2. 실시간 분류 결과 화면 (Gemini 활용 강조) -->
                             <div class="bg-white p-4 rounded-lg shadow-xl border-2 border-green-500 flex flex-col justify-between">
                                 <h5 class="text-lg font-bold text-green-700 mb-3">② 실시간 피드백 분류 결과 (Gemini API)</h5>
                                 <div class="p-3 bg-gray-50 border border-gray-300 rounded-md mb-3 flex-grow">
@@ -191,7 +162,6 @@
                             </div>
                         </div>
                         
-                        <!-- 추가 설명 -->
                         <ul class="list-disc list-inside text-gray-700 mt-6 ml-4 space-y-1">
                             <li>평가 제출 시 **`.csv` 형식의 문서 다운로드** 기능을 구현하여 데이터 백업 및 오프라인 분석 용이성을 확보했습니다.</li>
                             <li>데이터 집계 시, **고유 클라이언트 ID(clientId)**를 기준으로 중복 설문을 제거하여 정확한 **방문자/피드백 수**를 계산했습니다.</li>
@@ -199,10 +169,8 @@
                     </div>
                 </div>
 
-                <!-- Results and Retrospective -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
                     
-                    <!-- Results -->
                     <div class="bg-gray-100 p-6 rounded-lg border-t-4 border-blue-600 border border-gray-200">
                         <h3 class="text-2xl font-semibold text-blue-700 mb-3">결과 및 성과</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
@@ -213,7 +181,6 @@
                         </ul>
                     </div>
 
-                    <!-- Retrospective -->
                     <div class="bg-gray-100 p-6 rounded-lg border-t-4 border-purple-600 border border-gray-200">
                         <h3 class="text-2xl font-semibold text-purple-700 mb-3">회고 (배운 점 & 개선점)</h3>
                         <div class="space-y-3">
@@ -227,20 +194,79 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="text-center mt-12 pt-6 border-t border-gray-300">
             <p class="text-gray-500 text-sm">&copy; 2024. AI Developer Portfolio. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- Custom CSS for Skill Tags -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 1. Skill Tags 스타일링
             const skillTags = document.querySelectorAll('.skill-tag');
             skillTags.forEach(tag => {
-                // 밝은 테마에 맞게 기본 태그 스타일을 재정의합니다.
                 tag.classList.add('px-3', 'py-1', 'text-sm', 'font-medium', 'rounded-full', 'transition', 'duration-200', 'cursor-default');
-                // 기존의 어두운 테마용 클래스는 이미 Tailwind 클래스 목록에서 제거되었습니다.
+            });
+
+            // 2. Chart.js 도넛 차트 렌더링
+            const sentimentData = {
+                labels: ['Positive', 'Neutral', 'Negative'],
+                data: [68.2, 22.7, 9.1],
+                colors: ['#4CAF50', '#FFC107', '#F44336'] // Green, Yellow, Red
+            };
+
+            const ctx = document.getElementById('sentimentChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: sentimentData.labels,
+                    datasets: [{
+                        data: sentimentData.data,
+                        backgroundColor: sentimentData.colors,
+                        hoverOffset: 8,
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false, // 별도의 HTML 범례를 사용
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%',
+                }
+            });
+
+            // 3. 차트 범례 렌더링
+            const legendContainer = document.getElementById('chartLegend');
+            sentimentData.labels.forEach((label, index) => {
+                const percentage = sentimentData.data[index];
+                const color = sentimentData.colors[index];
+                const colorClass = index === 0 ? 'text-green-700' : index === 1 ? 'text-yellow-700' : 'text-red-700';
+
+                const legendItem = `
+                    <span class="flex items-center ${colorClass}">
+                        <span class="w-3 h-3 rounded-full mr-1" style="background-color: ${color};"></span> ${label} (${percentage}%)
+                    </span>
+                `;
+                legendContainer.insertAdjacentHTML('beforeend', legendItem);
             });
         });
     </script>
