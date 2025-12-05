@@ -227,7 +227,7 @@
             // ⭐ API Key: 사용자님의 API 키를 사용합니다.
             const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
             // CDN을 통해 로드된 GoogleGenerativeAI 클래스를 사용합니다.
-            const { GoogleGenerativeAI } = window.googleGenAI; 
+            const GoogleGenerativeAI = window.GoogleGenerativeAI;
             const genAI = new GoogleGenerativeAI(API_KEY);
             const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
@@ -420,3 +420,4 @@
 
 </html> driving-test-app/:230  Uncaught TypeError: Cannot destructure property 'GoogleGenerativeAI' of 'window.googleGenAI' as it is undefined.
     at HTMLDocument.<anonymous> (driving-test-app/:230:21)
+
