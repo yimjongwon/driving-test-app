@@ -1,14 +1,14 @@
-<!-- Chosen Palette: Calm Harmony (Warm Neutrals + Subtle Indigos) -->
-<!-- Application Structure Plan: The application uses a Thematic Dashboard approach, structured into three main sections: 1. Hero/Overview (Self-Introduction, Links), 2. Interactive Analysis Loop (Central Focus on the Sentiment Analysis Feature, using a Doughnut Chart and a live input demo for core feature presentation), and 3. Technical & Deployment Breakdown (Static explanations and an architectural diagram). This structure prioritizes showing the "action" (the feedback loop) first for maximum impact, followed by the supporting technical details (Flow, React, AWS). This design was chosen to immediately engage the user with the project's core interactivity. -->
-<!-- Visualization & Content Choices: Summary: Sentiment Data -> Goal: Quantify response -> Viz/Presentation Method: Doughnut Chart (Chart.js) -> Interaction: None (Displays simulated results) -> Justification: Clear proportion visualization. User Input -> Goal: Demonstrate Core Feature 2 -> Viz/Presentation Method: Textarea & Dynamic Text Output -> Interaction: User inputs text, JS classifies and updates the result -> Justification: Direct functional proof of sentiment analysis. Architecture -> Goal: Show System Flow -> Viz/Presentation Method: HTML/CSS Grid Diagram -> Interaction: None -> Justification: Simple, non-raster, and clear representation of the AWS/React/AI flow. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>임종원 | AI 영상 기반 프로젝트 포트폴리오</title>
+    <!-- Tailwind CSS (Aesthetics) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js (Data Visualization) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <!-- Gemini SDK (AI Logic) -->
     <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.16.0/dist/gemini.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
@@ -66,7 +66,7 @@
                     <h2 class="text-2xl font-bold mb-4 text-gray-700">핵심 기술 스택</h2>
                     <ul class="space-y-3">
                         <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> 프론트엔드: React, JavaScript, TypeScript</li>
-                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> AI/Tools: Flow (AI 영상 생성), 텍스트 감정 분류 AI</li>
+                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> AI/Tools: Flow (AI 영상 생성), 텍스트 감정 분류 AI (Gemini)</li>
                         <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> DevOps/배포: AWS, Git</li>
                     </ul>
                 </div>
@@ -85,13 +85,13 @@
                 <!-- 2.1 Live Sentiment Demo -->
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
                     <h3 class="text-2xl font-bold text-gray-700 mb-4">📝 실시간 감정 분류 체험</h3>
-                    <textarea id="feedback-input" class="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 mb-4 resize-none" placeholder="여기에 영상에 대한 평가 텍스트를 입력하세요."></textarea>
+                    <textarea id="feedback-input" class="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 mb-4 resize-none" placeholder="여기에 영상에 대한 평가 텍스트를 입력하세요. (예: 영상이 정말 인상적이고 좋네요.)"></textarea>
                     
-                    <button id="analyze-button" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 mb-4">
+                    <button id="analyze-button" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 mb-4 disabled:bg-indigo-400">
                         감정 분류 실행 (AI 분석)
                     </button>
                     
-                    <div id="result-box" class="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                    <div id="result-box" class="p-4 bg-gray-50 border border-gray-200 rounded-lg flex-grow">
                         <p class="font-medium text-gray-700">분석 결과:</p>
                         <p id="sentiment-result" class="text-xl font-extrabold mt-2 text-indigo-600">입력 대기 중...</p>
                     </div>
@@ -103,9 +103,9 @@
                 
                 <!-- 2.2 Sentiment Distribution Chart -->
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-4">📊 전체 설문 감정 분포 (시뮬레이션)</h3>
+                    <h3 class="text-2xl font-bold text-gray-700 mb-4">📊 전체 설문 감정 분포 (실시간 반영)</h3>
                     <p class="text-gray-600 mb-4">
-                        수집된 사용자 피드백을 감정 분류 AI로 분석한 결과의 시뮬레이션입니다. 긍정적 반응이 높게 나타나 공익광고의 메시지 전달력이 효과적임을 입증합니다.
+                        수집된 사용자 피드백을 AI로 분석한 결과가 실시간으로 차트에 반영됩니다.
                     </p>
                     <div class="chart-container flex-grow">
                         <canvas id="sentimentChart"></canvas>
@@ -155,18 +155,18 @@
                     </div>
                     <div class="text-4xl text-gray-400">→</div>
                     <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-teal-100 border-2 border-teal-500 rounded-lg flex items-center justify-center font-bold text-teal-600 text-center">React SPA</div>
-                        <div class="text-sm mt-2 text-gray-500">Frontend UI</div>
+                        <div class="w-20 h-20 bg-teal-100 border-2 border-teal-500 rounded-lg flex items-center justify-center font-bold text-teal-600 text-center">Frontend</div>
+                        <div class="text-sm mt-2 text-gray-500">HTML/JS/Tailwind</div>
                     </div>
                     <div class="text-4xl text-gray-400">→</div>
                     <div class="flex flex-col items-center">
                         <div class="w-20 h-20 bg-yellow-100 border-2 border-yellow-500 rounded-lg flex items-center justify-center font-bold text-yellow-600 text-center">AI Logic</div>
-                        <div class="text-sm mt-2 text-gray-500">Sentiment Classification</div>
+                        <div class="text-sm mt-2 text-gray-500">Gemini API</div>
                     </div>
                     <div class="text-4xl text-gray-400">→</div>
                     <div class="flex flex-col items-center">
                         <div class="w-20 h-20 bg-red-100 border-2 border-red-500 rounded-lg flex items-center justify-center font-bold text-red-600 text-center">LocalDB</div>
-                        <div class="text-sm mt-2 text-gray-500">Data Storage</div>
+                        <div class="text-sm mt-2 text-gray-500">Local Storage</div>
                     </div>
                     <div class="text-4xl text-gray-400">→</div>
                     <div class="flex flex-col items-center">
@@ -223,198 +223,199 @@
 
     
     <script>
-    // ⭐ API Key: 사용자님의 API 키를 사용합니다.
-    const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
-    // CDN을 통해 로드된 GoogleGenerativeAI 클래스를 사용합니다.
-    const { GoogleGenerativeAI } = window.googleGenAI; 
-    const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        document.addEventListener('DOMContentLoaded', function() {
+            // ⭐ API Key: 사용자님의 API 키를 사용합니다.
+            const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
+            // CDN을 통해 로드된 GoogleGenerativeAI 클래스를 사용합니다.
+            const { GoogleGenerativeAI } = window.googleGenAI; 
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    const feedbackInput = document.getElementById('feedback-input');
-    const analyzeButton = document.getElementById('analyze-button');
-    const sentimentResultElement = document.getElementById('sentiment-result');
-    const resultBox = document.getElementById('result-box');
-    const downloadButton = document.getElementById('download-button');
-    const ctx = document.getElementById('sentimentChart').getContext('2d');
-    
-    let storedFeedbacks = JSON.parse(localStorage.getItem('userFeedbacks')) || [];
-    let sentimentChart; // 차트 객체를 전역에서 관리
+            const feedbackInput = document.getElementById('feedback-input');
+            const analyzeButton = document.getElementById('analyze-button');
+            const sentimentResultElement = document.getElementById('sentiment-result');
+            const downloadButton = document.getElementById('download-button');
+            const ctx = document.getElementById('sentimentChart').getContext('2d');
+            
+            let storedFeedbacks = JSON.parse(localStorage.getItem('userFeedbacks')) || [];
+            let sentimentChart; // 차트 객체를 전역에서 관리
 
-    // -----------------------------------------------------------
-    // 헬퍼 함수
-    // -----------------------------------------------------------
+            // -----------------------------------------------------------
+            // 헬퍼 함수
+            // -----------------------------------------------------------
 
-    // 감정 결과에 따른 텍스트 색상 클래스 반환
-    function getSentimentColorClass(sentiment) {
-        const s = sentiment.toUpperCase().trim();
-        if (s === 'POSITIVE') return 'text-green-600';
-        if (s === 'NEGATIVE') return 'text-red-600';
-        return 'text-indigo-600'; // Neutral or default
-    }
-
-    // 차트 데이터 업데이트 및 차트 다시 그리기
-    function updateChart() {
-        let positiveCount = 0;
-        let negativeCount = 0;
-        let neutralCount = 0;
-        
-        storedFeedbacks.forEach(f => {
-            const sentiment = f.sentiment.toUpperCase().trim();
-            if (sentiment.includes('POSITIVE')) {
-                positiveCount++;
-            } else if (sentiment.includes('NEGATIVE')) {
-                negativeCount++;
-            } else {
-                neutralCount++;
+            // 감정 결과에 따른 텍스트 색상 클래스 반환
+            function getSentimentColorClass(sentiment) {
+                const s = sentiment.toUpperCase().trim();
+                if (s === 'POSITIVE') return 'text-indigo-600'; // 긍정은 인디고 (포트폴리오 주 색상)
+                if (s === 'NEGATIVE') return 'text-red-600';
+                return 'text-gray-500'; // Neutral or default
             }
-        });
 
-        const newChartData = {
-            labels: ['긍정 (Positive)', '중립 (Neutral)', '부정 (Negative)'],
-            datasets: [{
-                data: [positiveCount, neutralCount, negativeCount],
-                backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'],
-                borderColor: ['#ffffff', '#ffffff', '#ffffff'],
-                borderWidth: 2,
-            }]
-        };
+            // 차트 데이터 업데이트 및 차트 다시 그리기
+            function updateChart() {
+                let positiveCount = 0;
+                let negativeCount = 0;
+                let neutralCount = 0;
+                
+                storedFeedbacks.forEach(f => {
+                    const sentiment = f.sentiment.toUpperCase().trim();
+                    if (sentiment.includes('POSITIVE')) {
+                        positiveCount++;
+                    } else if (sentiment.includes('NEGATIVE')) {
+                        negativeCount++;
+                    } else {
+                        neutralCount++;
+                    }
+                });
 
-        if (sentimentChart) {
-            sentimentChart.data = newChartData;
-            sentimentChart.update();
-        }
-    }
+                const newChartData = {
+                    labels: ['긍정 (Positive)', '중립 (Neutral)', '부정 (Negative)'],
+                    datasets: [{
+                        data: [positiveCount, neutralCount, negativeCount],
+                        // 포트폴리오 팔레트 색상 사용 (Indigo, Gray, Red)
+                        backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'], 
+                        borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+                        borderWidth: 2,
+                    }]
+                };
 
-    // -----------------------------------------------------------
-    // 초기 차트 설정
-    // -----------------------------------------------------------
-    
-    sentimentChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: [], // 초기 데이터는 updateChart에서 채워집니다.
-            datasets: [{
-                data: [],
-                backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'],
-                borderColor: ['#ffffff', '#ffffff', '#ffffff'],
-                borderWidth: 2,
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { font: { size: 14 } }
+                if (sentimentChart) {
+                    sentimentChart.data = newChartData;
+                    sentimentChart.update();
+                }
+            }
+
+            // -----------------------------------------------------------
+            // 초기 차트 설정
+            // -----------------------------------------------------------
+            
+            sentimentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [], 
+                    datasets: [{
+                        data: [],
+                        backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'],
+                        borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+                        borderWidth: 2,
+                    }]
                 },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.label || '';
-                            if (label) { label += ': '; }
-                            if (context.parsed !== null) {
-                                label += context.parsed + '건';
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { size: 14 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed !== null) {
+                                        // 툴팁에 '건' 추가
+                                        label += context.parsed + '건';
+                                    }
+                                    return label;
+                                }
                             }
-                            return label;
                         }
                     }
                 }
-            }
-        }
-    });
-
-    updateChart(); // 로컬 스토리지 데이터로 차트 초기화
-
-    // -----------------------------------------------------------
-    // 이벤트 리스너
-    // -----------------------------------------------------------
-
-    analyzeButton.addEventListener('click', async function() {
-        const text = feedbackInput.value.trim();
-        if (text === '') {
-            sentimentResultElement.textContent = '평가 텍스트를 입력해주세요.';
-            sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-yellow-600';
-            return;
-        }
-
-        analyzeButton.disabled = true;
-        sentimentResultElement.textContent = 'AI 분석 중...';
-        sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-indigo-400';
-
-        try {
-            // ⭐ Gemini API를 호출하여 감정 분류 수행
-            const prompt = `Analyze the sentiment of the following text and classify 
-                            it as 'Positive', 'Negative', or 'Neutral'. Return only 
-                            one of these three words. Text: "${text}"
-                            If the text is too ambiguous, contains only special characters, 
-                            or lacks clear sentiment, **you MUST classify it as 'Neutral'**.
-            `;
-
-            const result = await model.generateContent({
-                contents: prompt,
             });
-            
-            const sentiment = result.text.trim().toUpperCase();
-            
-            // 결과 표시
-            sentimentResultElement.textContent = sentiment;
-            sentimentResultElement.className = 'text-xl font-extrabold mt-2 ' + getSentimentColorClass(sentiment);
 
-            // 데이터 저장 (Local Storage)
-            const feedbackEntry = {
-                text: text,
-                sentiment: sentiment,
-                timestamp: new Date().toISOString()
-            };
+            updateChart(); // 로컬 스토리지 데이터로 차트 초기화
 
-            storedFeedbacks.push(feedbackEntry);
-            localStorage.setItem('userFeedbacks', JSON.stringify(storedFeedbacks));
-            
-            // 차트 업데이트
-            updateChart();
+            // -----------------------------------------------------------
+            // 이벤트 리스너
+            // -----------------------------------------------------------
 
-        } catch (error) {
-            console.error('Error analyzing sentiment:', error);
-            sentimentResultElement.textContent = 'API 오류 발생';
-            sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-red-600';
-            alert('감정 분석 중 오류가 발생했습니다. API 키나 할당량을 확인해주세요.');
-        } finally {
-            analyzeButton.disabled = false;
-        }
-    });
+            analyzeButton.addEventListener('click', async function() {
+                const text = feedbackInput.value.trim();
+                if (text === '') {
+                    sentimentResultElement.textContent = '평가 텍스트를 입력해주세요.';
+                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-yellow-600';
+                    return;
+                }
 
-    downloadButton.addEventListener('click', function() {
-        if (storedFeedbacks.length === 0) {
-            alert('저장된 피드백이 없습니다. 먼저 평가를 입력하고 분석을 실행해주세요.');
-            return;
-        }
+                analyzeButton.disabled = true;
+                sentimentResultElement.textContent = 'AI 분석 중...';
+                sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-indigo-400';
 
-        // CSV 형식으로 변환
-        const csvHeader = "Timestamp,Sentiment,FeedbackText\n";
-        const csvRows = storedFeedbacks.map(f => {
-            // 따옴표를 두 개로 이스케이프하고, 쉼표가 포함된 경우 전체를 따옴표로 감쌈
-            const sanitizedText = `"${f.text.replace(/"/g, '""')}"`;
-            return `${f.timestamp},${f.sentiment},${sanitizedText}`;
-        }).join('\n');
-        
-        const csvString = csvHeader + csvRows;
+                try {
+                    // ⭐ Gemini API를 호출하여 감정 분류 수행
+                    const prompt = `Analyze the sentiment of the following text and classify 
+                                    it as 'Positive', 'Negative', or 'Neutral'. Return only 
+                                    one of these three words. Text: "${text}"
+                                    If the text is too ambiguous, contains only special characters, 
+                                    or lacks clear sentiment, **you MUST classify it as 'Neutral'**.
+                    `;
 
-        // Blob 생성 및 다운로드 실행 (한글 깨짐 방지를 위해 BOM(\uFEFF) 추가)
-        const blob = new Blob(["\uFEFF" + csvString], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'sentiment_feedback_results.csv';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    });
-</script>
+                    const result = await model.generateContent({ contents: prompt });
+                    
+                    // 응답 텍스트를 정리하고 대문자로 변환하여 저장
+                    const sentiment = result.text.trim().toUpperCase();
+                    
+                    // 결과 표시
+                    sentimentResultElement.textContent = sentiment;
+                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 ' + getSentimentColorClass(sentiment);
+
+                    // 데이터 저장 (Local Storage)
+                    const feedbackEntry = {
+                        text: text,
+                        sentiment: sentiment,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    storedFeedbacks.push(feedbackEntry);
+                    localStorage.setItem('userFeedbacks', JSON.stringify(storedFeedbacks));
+                    
+                    // 차트 업데이트
+                    updateChart();
+
+                } catch (error) {
+                    console.error('Error analyzing sentiment:', error);
+                    sentimentResultElement.textContent = 'API 오류 발생';
+                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-red-600';
+                    // alert() 대신 console.error 사용 (규칙 준수)
+                    console.error('감정 분석 중 오류가 발생했습니다. API 키나 할당량을 확인해주세요.');
+                } finally {
+                    analyzeButton.disabled = false;
+                }
+            });
+
+            downloadButton.addEventListener('click', function() {
+                if (storedFeedbacks.length === 0) {
+                    alert('저장된 피드백이 없습니다. 먼저 평가를 입력하고 분석을 실행해주세요.');
+                    return;
+                }
+
+                // CSV 형식으로 변환
+                const csvHeader = "Timestamp,Sentiment,FeedbackText\n";
+                const csvRows = storedFeedbacks.map(f => {
+                    // 따옴표를 두 개로 이스케이프하고, 쉼표가 포함된 경우 전체를 따옴표로 감쌈
+                    const sanitizedText = `"${f.text.replace(/"/g, '""')}"`;
+                    return `${f.timestamp},${f.sentiment},${sanitizedText}`;
+                }).join('\n');
+                
+                const csvString = csvHeader + csvRows;
+
+                // Blob 생성 및 다운로드 실행 (한글 깨짐 방지를 위해 BOM(\uFEFF) 추가)
+                const blob = new Blob(["\uFEFF" + csvString], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'sentiment_feedback_results.csv';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        });
+    </script>
 </body>
 
 </html>
-
-
