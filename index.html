@@ -1,434 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임종원 | AI 영상 기반 프로젝트 포트폴리오</title>
-    <!-- Tailwind CSS (Aesthetics) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js (Data Visualization) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <!-- Gemini SDK (AI Logic) -->
-    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.16.0/dist/gemini-2.5-flash.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        .section-anchor:hover {
-            color: #4f46e5;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임종원 | AI 영상 기반 프로젝트 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .section-anchor:hover { color: #4f46e5; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex justify-between items-center h-16">
-                <div class="text-xl font-bold text-indigo-600">임종원 Portfolio</div>
-                <div class="flex space-x-4">
-                    <a href="#overview" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">개요</a>
-                    <a href="#analysis" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">피드백 분석</a>
-                    <a href="#features" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">기술 상세</a>
-                    <a href="#results" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">성과 및 회고</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-indigo-600">임종원 Portfolio</div>
+                <div class="flex space-x-4">
+                    <a href="#overview" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">개요</a>
+                    <a href="#analysis" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">피드백 분석</a>
+                    <a href="#features" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">기술 상세</a>
+                    <a href="#results" class="section-anchor text-sm font-medium transition duration-150 ease-in-out">성과 및 회고</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section id="overview" class="mb-20 pt-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                <div class="md:col-span-2">
+                    <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+                        <span class="text-indigo-600">운전자 전방주시 경고 영상</span> 프로젝트
+                    </h1>
+                    <p class="text-2xl font-semibold text-gray-600 mb-6">AI 기술에 대해 알고 다양한 분야에 활용하고 싶은 개발자.</p>
+                    <p class="mt-4 text-gray-600 leading-relaxed">
+                        이 프로젝트는 Flow를 활용한 영상 제작, 텍스트 기반 감정 분류 AI 활용, 로컬 스토리지 기반 문서 다운로드 기능 구현, 그리고 AWS를 활용한 배포 완료라는 명확한 기술적 흐름을 보여줍니다.
+                    </p>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">GitHub 방문</a>
+                        <a href="#" class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg shadow-md hover:bg-indigo-50 transition duration-150">Email 문의</a>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-700">핵심 기술 스택</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> 프론트엔드: HTML, Tailwind CSS, JS</li>
+                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> AI: Google Gemini API (Sentiment Analysis)</li>
+                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> Data: Local Storage, Chart.js</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- 1. HERO & OVERVIEW -->
-        <section id="overview" class="mb-20 pt-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-                <div class="md:col-span-2">
-                    <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
-                        <span class="text-indigo-600">운전자 전방주시 경고 영상</span> 프로젝트
-                    </h1>
-                    <p class="text-2xl font-semibold text-gray-600 mb-6">AI 기술에 대해 알고 다양한 분야에 활용하고 싶은 개발자, 배포나 클라우드에 관심이 있다.</p>
-                    <p class="mt-4 text-gray-600 leading-relaxed">
-                        저는 비즈니스 문제를 기술로 해결하는 과정에 매력을 느끼며, 특히 실생활에 직접적인 영향을 미치는 AI 기술의 응용에 집중하고 있습니다. 이 프로젝트는 Flow를 활용한 영상 제작, 텍스트 기반 감정 분류 AI 활용, 로컬 스토리지 기반 문서 다운로드 기능 구현, 그리고 AWS를 활용한 배포 완료**라는 명확한 기술적 흐름을 보여줍니다.
-                    </p>
-                    <div class="mt-8 flex space-x-4">
-                        <a href="https://github.com/yimjongwon/driving-test-app.git" target="_blank" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition duration-150">GitHub 방문</a>
-                        <a href="mailto:awosung00@naver.com" class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg shadow-md hover:bg-indigo-50 transition duration-150">Email 문의</a>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-700">핵심 기술 스택</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> 프론트엔드: React, JavaScript, TypeScript</li>
-                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> AI/Tools: Flow (AI 영상 생성), 텍스트 감정 분류 AI (Gemini)</li>
-                        <li class="flex items-center text-gray-600"><span class="text-indigo-500 mr-2">▶</span> DevOps/배포: AWS, Git</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. INTERACTIVE ANALYSIS LOOP (Core Feature Demonstration) -->
-        <section id="analysis" class="mb-20 pt-10">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2">🎯 핵심 기능 시연: 사용자 피드백 감정 분석</h2>
-            <p class="mb-8 text-lg text-gray-600">
-                이 섹션에서는 공익광고 시청 후 사용자가 남긴 텍스트 피드백을 실시간으로 분석하는 핵심 기능을 시연합니다. 텍스트 기반 감정 분류 AI를 활용하여 피드백을 Positive, Neutral, Negative로 분류하는 과정을 직접 체험하고, 전체 설문 결과의 감정 분포를 확인해보세요.
-            </p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                
-                <!-- 2.1 Live Sentiment Demo -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-4">📝 실시간 감정 분류 체험</h3>
-                    <textarea id="feedback-input" class="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 mb-4 resize-none" placeholder="여기에 영상에 대한 평가 텍스트를 입력하세요. (예: 영상이 정말 인상적이고 좋네요.)"></textarea>
-                    
-                    <button id="analyze-button" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 mb-4 disabled:bg-indigo-400">
-                        감정 분류 실행 (AI 분석)
-                    </button>
-                    
-                    <div id="result-box" class="p-4 bg-gray-50 border border-gray-200 rounded-lg flex-grow">
-                        <p class="font-medium text-gray-700">분석 결과:</p>
-                        <p id="sentiment-result" class="text-xl font-extrabold mt-2 text-indigo-600">입력 대기 중...</p>
-                    </div>
-
-                    <button id="download-button" class="w-full mt-4 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-150">
-                        데이터 문서 다운로드 (Local Storage 기반)
-                    </button>
-                </div>
-                
-                <!-- 2.2 Sentiment Distribution Chart -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-4">📊 전체 설문 감정 분포 (실시간 반영)</h3>
-                    <p class="text-gray-600 mb-4">
-                        수집된 사용자 피드백을 AI로 분석한 결과가 실시간으로 차트에 반영됩니다.
-                    </p>
-                    <div class="chart-container flex-grow">
-                        <canvas id="sentimentChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. TECHNICAL BREAKDOWN -->
-        <section id="features" class="mb-20 pt-10">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2">🛠️ 기술적 깊이: 아키텍처 및 핵심 기능</h2>
-            <p class="mb-8 text-lg text-gray-600">
-                프로젝트의 기술적 구조와 구현 방식에 대한 상세 설명입니다. AI 모델 제작부터 클라우드 배포까지 전 과정에 걸친 역량을 확인할 수 있습니다.
-            </p>
-
-            <!-- Feature 1: AI Video (Flow) -->
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-2xl font-bold text-indigo-600 mb-3">🎬 핵심 기능 1: Flow를 활용한 고품질 공익광고 영상 제작</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="md:col-span-2">
-                        <p class="text-gray-600 mb-3">
-                            AI 기반 공익광고 영상 (Flow): 명령 프롬프트(Prompt) 엔지니어링을 통해 영상에 나오는 인물의 생김새, 복장, 배경 등을 상세하게 묘사하여 **영상 일관성 및 메시지 명확성**을 확보했습니다. 1분 이내의 짧은 시간 동안 전방주시 태만의 위험성을 효과적으로 전달하는 데 초점을 맞췄습니다.
-                        </p>
-                        <p class="text-sm text-gray-500">
-                            나의 기여: Flow를 활용한 1분 이내 공익광고 영상 제작 및 프롬프트 엔지니어링 수행.
-                        </p>
-                    </div>
-                    <div class="md:col-span-1 flex items-center justify-center bg-gray-100 rounded-lg p-4">
-                        <p class="text-center text-gray-500 font-semibold">
-                            AI 영상 제작 (Flow)<br><span class="text-indigo-500 text-3xl">🤖</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 2: Architecture & Deployment (AWS) -->
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-2xl font-bold text-indigo-600 mb-4">⚙️ 아키텍처 & 배포 (AWS, React)</h3>
-                <p class="text-gray-600 mb-6">
-                    사용자 평가 시스템은 React 기반 SPA로 구축되었으며, 모든 프로젝트 파일은 AWS 클라우드를 활용하여 배포 완료됨으로써 높은 접근성을 확보했습니다.
-                </p>
-                <!-- HTML/CSS Architecture Diagram -->
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-indigo-100 border-2 border-indigo-500 rounded-full flex items-center justify-center font-bold text-indigo-600 text-center">User</div>
-                        <div class="text-sm mt-2 text-gray-500">Video Watch & Input</div>
-                    </div>
-                    <div class="text-4xl text-gray-400">→</div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-teal-100 border-2 border-teal-500 rounded-lg flex items-center justify-center font-bold text-teal-600 text-center">Frontend</div>
-                        <div class="text-sm mt-2 text-gray-500">HTML/JS/Tailwind</div>
-                    </div>
-                    <div class="text-4xl text-gray-400">→</div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-yellow-100 border-2 border-yellow-500 rounded-lg flex items-center justify-center font-bold text-yellow-600 text-center">AI Logic</div>
-                        <div class="text-sm mt-2 text-gray-500">Gemini API</div>
-                    </div>
-                    <div class="text-4xl text-gray-400">→</div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-red-100 border-2 border-red-500 rounded-lg flex items-center justify-center font-bold text-red-600 text-center">LocalDB</div>
-                        <div class="text-sm mt-2 text-gray-500">Local Storage</div>
-                    </div>
-                    <div class="text-4xl text-gray-400">→</div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-blue-100 border-2 border-blue-500 rounded-lg flex items-center justify-center font-bold text-blue-600 text-center">AWS</div>
-                        <div class="text-sm mt-2 text-gray-500">Deployment & Access</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. RESULTS AND REFLECTION -->
-        <section id="results" class="mb-20 pt-10">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2">✅ 성과 및 회고</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="bg-indigo-50 p-6 rounded-xl shadow-sm border border-indigo-100">
-                    <p class="text-2xl font-bold text-indigo-700">데이터 가치 확보</p>
-                    <p class="text-sm text-gray-600 mt-2">텍스트 기반 AI 분류를 활용하여 정량적인 감정 지표로 문서화 완료.</p>
-                </div>
-                <div class="bg-indigo-50 p-6 rounded-xl shadow-sm border border-indigo-100">
-                    <p class="text-2xl font-bold text-indigo-700">클라우드 배포</p>
-                    <p class="text-sm text-gray-600 mt-2">AWS를 통한 클라우드 배포 완료로 서비스 접근성 및 검증 환경 확보.</p>
-                </div>
-                <div class="bg-indigo-50 p-6 rounded-xl shadow-sm border border-indigo-100">
-                    <p class="text-2xl font-bold text-indigo-700">UI/UX 최적화</p>
-                    <p class="text-sm text-gray-600 mt-2">React 활용, 사용자 친화적 인터페이스로 피드백 제출 프로세스 이탈률 최소화.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-3">🌱 배운 점 (Learned)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600">
-                        <li>AI 영상 생성 툴인 Flow의 동작 원리를 깊이 이해하고, 원하는 결과물을 얻기 위한 프롬프트 엔지니어링의 중요성을 체득.</li>
-                        <li>텍스트 기반 감정 분류 로직을 클라이언트 측에 통합하는 과정에서 AI 활용의 실용적인 측면을 배움.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-2xl font-bold text-gray-700 mb-3">🚀 개선점 (Improvement)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600">
-                        <li>현재 로컬 스토리지 기반에서 향후 **백엔드(Node.js/Django) 및 데이터베이스(Firestore/PostgreSQL)**를 구성하여 사용자 데이터 상호 비교 및 통계 도출 기능 확장 필요.</li>
-                        <li>클라우드 기반의 MLOps 파이프라인 구축을 통해 모델 업데이트 및 재학습 자동화 모색.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            © 2025 임종원 Portfolio. All rights reserved.
-        </div>
-    </footer>
-
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // ⭐ API Key: 사용자님의 API 키를 사용합니다.
-            const API_KEY = 'AIzaSyBQIr4BE9Sduvj7eb10ngG_CGer0vzzQLY';
-            // CDN을 통해 로드된 GoogleGenerativeAI 클래스를 사용합니다.
-           const GoogleGenerativeAI = window.GoogleGenerativeAI;
-
-            // GoogleGenerativeAI 객체가 올바르게 로드되었는지 확인하는 로직을 추가하는 것이 안전합니다.
-            if (typeof GoogleGenerativeAI === 'undefined') {
-                console.error("오류: GoogleGenerativeAI SDK가 로드되지 않았습니다. CDN 경로를 확인해주세요.");
-                return; // 추가 실행 방지
-            }
-            const genAI = new GoogleGenerativeAI(API_KEY);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-            const feedbackInput = document.getElementById('feedback-input');
-            const analyzeButton = document.getElementById('analyze-button');
-            const sentimentResultElement = document.getElementById('sentiment-result');
-            const downloadButton = document.getElementById('download-button');
-            const ctx = document.getElementById('sentimentChart').getContext('2d');
-            
-            let storedFeedbacks = JSON.parse(localStorage.getItem('userFeedbacks')) || [];
-            let sentimentChart; // 차트 객체를 전역에서 관리
-
-            // -----------------------------------------------------------
-            // 헬퍼 함수
-            // -----------------------------------------------------------
-
-            // 감정 결과에 따른 텍스트 색상 클래스 반환
-            function getSentimentColorClass(sentiment) {
-                const s = sentiment.toUpperCase().trim();
-                if (s === 'POSITIVE') return 'text-indigo-600'; // 긍정은 인디고 (포트폴리오 주 색상)
-                if (s === 'NEGATIVE') return 'text-red-600';
-                return 'text-gray-500'; // Neutral or default
-            }
-
-            // 차트 데이터 업데이트 및 차트 다시 그리기
-            function updateChart() {
-                let positiveCount = 0;
-                let negativeCount = 0;
-                let neutralCount = 0;
-                
-                storedFeedbacks.forEach(f => {
-                    const sentiment = f.sentiment.toUpperCase().trim();
-                    if (sentiment.includes('POSITIVE')) {
-                        positiveCount++;
-                    } else if (sentiment.includes('NEGATIVE')) {
-                        negativeCount++;
-                    } else {
-                        neutralCount++;
-                    }
-                });
-
-                const newChartData = {
-                    labels: ['긍정 (Positive)', '중립 (Neutral)', '부정 (Negative)'],
-                    datasets: [{
-                        data: [positiveCount, neutralCount, negativeCount],
-                        // 포트폴리오 팔레트 색상 사용 (Indigo, Gray, Red)
-                        backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'], 
-                        borderColor: ['#ffffff', '#ffffff', '#ffffff'],
-                        borderWidth: 2,
-                    }]
-                };
-
-                if (sentimentChart) {
-                    sentimentChart.data = newChartData;
-                    sentimentChart.update();
-                }
-            }
-
-            // -----------------------------------------------------------
-            // 초기 차트 설정
-            // -----------------------------------------------------------
-            
-            sentimentChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [], 
-                    datasets: [{
-                        data: [],
-                        backgroundColor: ['#4f46e5', '#9ca3af', '#dc2626'],
-                        borderColor: ['#ffffff', '#ffffff', '#ffffff'],
-                        borderWidth: 2,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { font: { size: 14 } }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) { label += ': '; }
-                                    if (context.parsed !== null) {
-                                        // 툴팁에 '건' 추가
-                                        label += context.parsed + '건';
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            updateChart(); // 로컬 스토리지 데이터로 차트 초기화
-
-            // -----------------------------------------------------------
-            // 이벤트 리스너
-            // -----------------------------------------------------------
-
-            analyzeButton.addEventListener('click', async function() {
-                const text = feedbackInput.value.trim();
-                if (text === '') {
-                    sentimentResultElement.textContent = '평가 텍스트를 입력해주세요.';
-                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-yellow-600';
-                    return;
-                }
-
-                analyzeButton.disabled = true;
-                sentimentResultElement.textContent = 'AI 분석 중...';
-                sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-indigo-400';
-
-                try {
-                    // ⭐ Gemini API를 호출하여 감정 분류 수행
-                    const prompt = `Analyze the sentiment of the following text and classify 
-                                    it as 'Positive', 'Negative', or 'Neutral'. Return only 
-                                    one of these three words. Text: "${text}"
-                                    If the text is too ambiguous, contains only special characters, 
-                                    or lacks clear sentiment, **you MUST classify it as 'Neutral'**.
-                    `;
-
-                    const result = await model.generateContent({ contents: prompt });
-                    
-                    // 응답 텍스트를 정리하고 대문자로 변환하여 저장
-                    const sentiment = result.text.trim().toUpperCase();
-                    
-                    // 결과 표시
-                    sentimentResultElement.textContent = sentiment;
-                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 ' + getSentimentColorClass(sentiment);
-
-                    // 데이터 저장 (Local Storage)
-                    const feedbackEntry = {
-                        text: text,
-                        sentiment: sentiment,
-                        timestamp: new Date().toISOString()
-                    };
-
-                    storedFeedbacks.push(feedbackEntry);
-                    localStorage.setItem('userFeedbacks', JSON.stringify(storedFeedbacks));
-                    
-                    // 차트 업데이트
-                    updateChart();
-
-                } catch (error) {
-                    console.error('Error analyzing sentiment:', error);
-                    sentimentResultElement.textContent = 'API 오류 발생';
-                    sentimentResultElement.className = 'text-xl font-extrabold mt-2 text-red-600';
-                    // alert() 대신 console.error 사용 (규칙 준수)
-                    console.error('감정 분석 중 오류가 발생했습니다. API 키나 할당량을 확인해주세요.');
-                } finally {
-                    analyzeButton.disabled = false;
-                }
-            });
-
-            downloadButton.addEventListener('click', function() {
-                if (storedFeedbacks.length === 0) {
-                    alert('저장된 피드백이 없습니다. 먼저 평가를 입력하고 분석을 실행해주세요.');
-                    return;
-                }
-
-                // CSV 형식으로 변환
-                const csvHeader = "Timestamp,Sentiment,FeedbackText\n";
-                const csvRows = storedFeedbacks.map(f => {
-                    // 따옴표를 두 개로 이스케이프하고, 쉼표가 포함된 경우 전체를 따옴표로 감쌈
-                    const sanitizedText = `"${f.text.replace(/"/g, '""')}"`;
-                    return `${f.timestamp},${f.sentiment},${sanitizedText}`;
-                }).join('\n');
-                
-                const csvString = csvHeader + csvRows;
-
-                // Blob 생성 및 다운로드 실행 (한글 깨짐 방지를 위해 BOM(\uFEFF) 추가)
-                const blob = new Blob(["\uFEFF" + csvString], { type: 'text/csv;charset=utf-8;' });
-                const url = URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'sentiment_feedback_results.csv';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            });
-        });
-    </script>
-</body>
-
-</html>
-driving-test-app/:234  오류: GoogleGenerativeAI SDK가 로드되지 않았습니다. CDN 경로를 확인해주세요.
-(anonymous) @ driving-test-app/:234
-favicon.ico:1 
-            
-            
-            Failed to load resource: the server responded with a status of 404 ()
- 
+        <section id="analysis" class="mb-20 pt-10">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2">🎯 핵심 기능 시연: 사용자 피드백 감정 분석</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-4">📝 실시간 감정 분류 체험</h3>
+                    <textarea id="feedback-input" class="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 mb-4 resize-none" placeholder="영상에 대한 평가를 입력하세요. (예: 정말 유익한 영상이네요!)"></textarea>
+                    
+                    <button id="analyze-button" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 mb-4
