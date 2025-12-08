@@ -169,6 +169,29 @@
                     </div>
                 </div>
 
+                <div class="mb-8 pt-4 pb-4 px-6 bg-blue-50 rounded-lg border border-blue-200">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM21 4H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zM3 6l9 6 9-6v12H3V6z"></path></svg>
+                        🚀 프로젝트 시연 영상
+                    </h3>
+                    
+                    <video 
+                        controls 
+                        autoplay 
+                        loop 
+                        muted 
+                        class="w-full h-auto rounded-lg shadow-xl border-4 border-blue-600"
+                        style="max-height: 400px; object-fit: cover;"
+                        >
+                        <source src="자가진단.mp4" type="video/mp4">
+                        
+                        <p class="text-red-500 p-4">죄송합니다. 귀하의 브라우저는 이 비디오 재생을 지원하지 않습니다.</p>
+                    </video>
+                    <p class="text-xs text-gray-600 mt-3 text-center italic">
+                        **참고:** 프로젝트 루트 경로에 `videos` 폴더를 만들고, 시연 영상 파일(`demo.mp4`)을 넣어주세요.
+                    </p>
+                </div>
+                
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
                     
                     <div class="bg-gray-100 p-6 rounded-lg border-t-4 border-blue-600 border border-gray-200">
@@ -272,3 +295,4 @@
     </script>
 </body>
 </html>
+
