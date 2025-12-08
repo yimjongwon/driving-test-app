@@ -169,6 +169,66 @@
                     </div>
                 </div>
 
+                
+                <div class="space-y-6 pt-8 pb-4 border-t border-gray-300">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.74 0 3.32.88 4.24 2.24L12 11.24 7.76 7.24A4.98 4.98 0 0112 5zm-4.24 6.76L12 16.76l4.24-4.24c-.92-.6-1.99-1.01-3.12-1.12V8.5a4.997 4.997 0 00-2.24 4.26zM12 19c-1.74 0-3.32-.88-4.24-2.24L12 12.76l4.24 4.24A4.98 4.98 0 0112 19z"></path></svg>
+                        사용자 분석 및 평가 결과 (데이터 기반)
+                    </h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-red-200">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2 border-b pb-1">1. 사용자 확보 방법</h4>
+                        <ul class="list-disc list-inside text-gray-700 ml-4">
+                            <li>**AWS S3 배포 링크 직접 공유:** 포트폴리오 평가 및 검증을 위해 링크를 직접 공유하여 고유 사용자 피드백을 확보했습니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-red-200">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2 border-b pb-1">2. 사용자 특성 (행동 기반)</h4>
+                        <p class="text-gray-700">
+                            **높은 관심도:** 대부분의 방문자가 단순히 방문에 그치지 않고, 영상 시청 후 **직접 텍스트 피드백과 만족도 평가**에 참여하여 높은 참여율을 보였습니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-red-200">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3 border-b pb-1">3. 감정 분류 결과 통계 (2025.12.08 기준, 총 13명)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-300">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">감정 분류</th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">인원수</th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">비율 (Percentage)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr class="hover:bg-green-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-700">Positive (긍정)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">9명</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">69.2%</td>
+                                    </tr>
+                                    <tr class="hover:bg-yellow-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-yellow-700">Neutral (중립)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">2명</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">15.4%</td>
+                                    </tr>
+                                    <tr class="hover:bg-red-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-700">Negative (부정)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">2명</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">15.4%</td>
+                                    </tr>
+                                    <tr class="bg-gray-100 font-bold">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">총합</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">13명</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">100%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+        
                 <div class="mb-8 pt-4 pb-4 px-6 bg-blue-50 rounded-lg border border-blue-200">
                     <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM21 4H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zM3 6l9 6 9-6v12H3V6z"></path></svg>
@@ -227,7 +287,7 @@
         </section>
 
         <footer class="text-center mt-12 pt-6 border-t border-gray-300">
-            <p class="text-gray-500 text-sm">&copy; 2024. AI Developer Portfolio. All rights reserved.</p>
+            <p class="text-gray-500 text-sm">&copy; 2025. AI Developer Portfolio. All rights reserved.</p>
         </footer>
     </div>
 
@@ -304,6 +364,7 @@
     </script>
 </body>
 </html>
+
 
 
 
